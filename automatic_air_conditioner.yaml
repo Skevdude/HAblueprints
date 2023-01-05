@@ -198,7 +198,7 @@ variables:
   window: !input window
   language: !input language
   presence_home: !input presence_home
-  temperature: !imput temperature
+  temperature: !input temperature
 trigger:
 - platform: state
   entity_id: !input moisture
