@@ -36,6 +36,13 @@ blueprint:
         entity:
           domain: climate
 
+    temperature:
+      name: Entities temperature
+      description: 'Select temperature entities to be used. '
+      selector:
+        entity:
+          domain: sensor
+
     season:
       name: Select season
       description: 'Select the season of use.'
@@ -191,6 +198,7 @@ variables:
   window: !input window
   language: !input language
   presence_home: !input presence_home
+  temperature: !imput temperature
 trigger:
 - platform: state
   entity_id: !input moisture
@@ -205,25 +213,17 @@ trigger:
     minutes: 5
   id: moisture_climate_off
 - platform: numeric_state
-  entity_id: !input climate
-  attribute: current_temperature
+  entity_id: !input temperature
   above: !input target_temperature_start
   id: climate_on
 - platform: numeric_state
-  entity_id: !input climate
-  attribute: current_temperature 
-  below: !input target_temperature_start
-  id: climate_on
-- platform: numeric_state
-  entity_id: !input climate
-  attribute: current_temperature 
+  entity_id: !input temperature
   below: !input target_temperature_stop
   for: 
     minutes: !input delay_temperature_stop
   id: climate_off
 - platform: numeric_state
-  entity_id: !input climate
-  attribute: current_temperature 
+  entity_id: !input temperature
   above: !input target_temperature_stop
   for: 
     minutes: !input delay_temperature_stop
