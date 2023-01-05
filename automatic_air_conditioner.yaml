@@ -43,6 +43,13 @@ blueprint:
         entity:
           domain: sensor
 
+    outside_temperature:
+      name: Entities outside temperature
+      description: 'Select the outside air temperature entities to be used. '
+      selector:
+        entity:
+          domain: sensor
+          
     season:
       name: Select season
       description: 'Select the season of use.'
@@ -199,6 +206,7 @@ variables:
   language: !input language
   presence_home: !input presence_home
   temperature: !input temperature
+  outside_temperature: !input outside_temperature
 trigger:
 - platform: state
   entity_id: !input moisture
