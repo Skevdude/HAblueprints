@@ -283,10 +283,10 @@ action:
     - domain: mobile_app
       type: notify
       device_id: !input notify_device
-      title: "{% if language == 'Italiano' %}CONDIZIONATORE
+      title: "{% if language == 'Nederlands' %}Aircontioner
               {% else %}AIR CONDITIONER.
               {% endif %}"
-      message: "{% if language == 'Italiano' %}Contenitore scarico acqua condizionatore pieno, spegnimento automatico tra 5 minuti.
+      message: "{% if language == 'Nederlands' %}Water opvang bak vol, airco automatisch uit na 5 minuten.
                 {% else %} Air conditioner water discharge container full, automatic shutdown in 5 minutes.
                 {% endif %}"
 - alias: Accensione climate
@@ -318,20 +318,20 @@ action:
           - domain: mobile_app
             type: notify
             device_id: !input notify_device
-            title: "{% if language == 'Italiano' %}CONDIZIONATORE
+            title: "{% if language == 'Nederlands' %}Airconditioner
                     {% else %}AIR CONDITIONER.
                     {% endif %}"
-            message: "{% if language == 'Italiano' %}Accensione condizionatore eseguita ci sono {{state_attr(climate,'current_temperature')|float(0)}}°
+            message: "{% if language == 'Nederlands' %}Airco aangezet bij {{state_attr(climate,'current_temperature')|float(0)}}°
                       {% else %} Turn on air conditioner performed there are {{state_attr(climate,'current_temperature')|float(0)}}°
                       {% endif %}"
         else:
           - domain: mobile_app
             type: notify
             device_id: !input notify_device
-            title: "{% if language == 'Italiano' %}CONDIZIONATORE
+            title: "{% if language == 'Nederlands' %}Airconditioner
                     {% else %}  AIR CONDITIONER.
                     {% endif %}"
-            message: "{% if language == 'Italiano' %}Accensione condizionatore non eseguito perchè hai lasciato aperta la finesta.
+            message: "{% if language == 'Nederlands' %}Airco niet automatisch aan, want de raam staat nog open.
                       {% else %} Turning on air conditioner not performed because you left the window open.
                       {% endif %}"
 - alias: Spegni climate
@@ -351,12 +351,12 @@ action:
       - domain: mobile_app
         type: notify
         device_id: !input notify_device
-        title: "{% if language == 'Italiano' %}CONDIZIONATORE   
+        title: "{% if language == 'Nederlands' %}Airconditioner   
                 {% else %}  AIR CONDITIONER.
                 {% endif %}"
-        message: "{% if language == 'Italiano' and trigger.id == 'window' %}Condizionatore spento perchè è stata aperta la finestra.
-                  {% elif language == 'Italiano' and (trigger.id == 'climate_off' or trigger.id == 'presence_home')%} Spegnimento automatico condizionatore.
-                  {% elif language == 'Italiano' and trigger.id == 'moisture_climate_off' %} Condizionatore spento per contenitore scarico acqua pieno.
+        message: "{% if language == 'Nederlands' and trigger.id == 'window' %}Airco automatisch uitgeschakeld omdat de raam geopened is.
+                  {% elif language == 'Nederlands' and (trigger.id == 'climate_off' or trigger.id == 'presence_home')%} Airco automatisch uitgeschakeld.
+                  {% elif language == 'Nederlands' and trigger.id == 'moisture_climate_off' %} Airco automatisch uit i.v.m. volle opvangbak.
                   {% elif language == 'English' and trigger.id == 'window' %} Air conditioner turned off because the window was opened.
                   {% elif language == 'English' and (trigger.id == 'climate_off' or trigger.id == 'presence_home')%} Automatic air conditioner shutdown.
                   {% elif language == 'English' and trigger.id == 'moisture_climate_off' %} Air conditioner off for water drain container full.
